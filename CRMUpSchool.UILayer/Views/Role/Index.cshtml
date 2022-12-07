@@ -1,0 +1,36 @@
+﻿@model List<AppRole> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CrmLayout.cshtml";
+}
+<!--list olmayınca hata aldık Model foreach de-->
+    <h1>Index</h1>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Role Name
+            </th>
+            <th>
+                Delete Role
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    <a href="/Role/DeleteRole/@item.Id" class="btn btn-danger">Delete</a> <!--------item demesek eleman silmez çalışmazdı-->
+                </td>
+            </tr>
+        }
+    </table>
+<a href="/Role/AddRole/" class="btn btn-primary">For NEW role</a>

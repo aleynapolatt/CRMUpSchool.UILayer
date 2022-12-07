@@ -1,0 +1,37 @@
+﻿@model List<EmployeeTask>
+@{
+    ViewData["Title"] = "EmployeeTaskListByProfile";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+    int count= 0;
+}
+
+<h3>Task List</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Date</th>
+        <th>Details</th>
+        <th>New Operation</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Title</td>
+            <td>@item.Status</td>
+            <td>@item.Date.ToString("dd.MMM.yyyy")</td>
+            <td><a href="/Employee/EmployeeTaskDetail/Index/@item.EmployeeTaskID
+                   " class="btn btn-outline-warning">Details</a></td>
+            <td><a href="#" class="btn btn-outline-dark">New Operation</a></td>
+        </tr>
+    }
+</table>
+<a href="/EmployeeTask/AddTask" class="btn btn-outline-info">New Role Entrance</a>
+
+
